@@ -39,7 +39,8 @@
     padding: 0px;
   }
   .SubSection:hover{
-	background:rgba(19, 51, 195, 0.404);
+  background:rgba(19, 51, 195, 0.404);
+  color: aliceblue;
   }
   .SectionI:hover{
 	background:rgba(19, 195, 34, 0.604);
