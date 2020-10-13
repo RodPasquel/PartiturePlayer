@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Clementi Sonatina</title>
+</head>
+<body>
+    <audio id="Song">
+        <source src="audio/Clementi_Sonatina_1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <header>
+        Analisis de las 3 secciones del Allegro de la Sonatine No. de  M. Clementi
+    </header>
+      <button onclick="playAudio(1)" type="button">Play All Song</button>
+    <button onclick="pauseAudio()" type="button">Pause Song</button> 
+    <div class="ConfigContainer">
+        Configuraciones:  
+        <label for="switch1" onclick="showHideSubSections()">Ocultar Subsecciones</label><input id="switch1" type="checkbox" />
+        <label for="AudioSwitch" onclick="enablePlayAudio()">Deshabilitar Reproducir Audio</label><input id="AudioSwitch" type="checkbox" />
+    </div>
+    <div class="ImageContainer">
+        <img src="ClementiSonatina.jpg" alt="PartitureImage" style="width: 100%;">
+            <div class="Expo-block1 SectionI">
+                Exposición
+                <div class="Tema1 SubSection" onmouseover="playAudio2(1,3.4)" onmouseout="pauseAudio()">
+                    Tema 1
+                </div>
+                <div class="TemaLibre1 SubSection" onmouseover="playAudio2(3.5,5.9)" onmouseout="pauseAudio()">
+                    Tema Libre
+                </div>              
+                <div class="Tema1bis SubSection" onmouseover="playAudio2(6,8.3)" onmouseout="pauseAudio()">
+                    Tema 1
+                </div>
+            </div>
+            <div class="Expo-block2 SectionI">
+                Exposición
+                    <div class="TemaLibre2 SubSection" onmouseover="playAudio2(8.2,9.6)" onmouseout="pauseAudio()">
+                        Tema Libre
+                    </div> 
+                    <div class="Tema2 SubSection" onmouseover="playAudio2(9.6,12)" onmouseout="pauseAudio()">
+                        Tema 2
+                    </div>             
+                    <div class="Tema2bis SubSection" onmouseover="playAudio2(12,14.4)" onmouseout="pauseAudio()">
+                        Tema 2
+                    </div>
+                    <div class="TemaLibre3 SubSection" onmouseover="playAudio2(14.4,15.5)" onmouseout="pauseAudio()">
+                        Tema Libre
+                    </div>                      
+            </div>
+            <div class="Expo-block3 SectionI">
+                Exposición
+                <div class="TemaLibre4 SubSection" onmouseover="playAudio2(15.6,19)" onmouseout="pauseAudio()">
+                    Tema Libre
+                </div> 
+            </div>
+
+            <div class="Desa-block1">
+                <h4>Desarrollo</h4>
+                <div class="Tema1mod SubSection" onmouseover="playAudio2(38,40.3)" onmouseout="pauseAudio()">
+                    Tema 1 modificado
+                </div>
+                <div class="TemaLibre5 SubSection" onmouseover="playAudio2(40.5,42.8)" onmouseout="pauseAudio()">
+                    Tema Libre
+                </div> 
+            </div>
+            <div class="Desa-block2">
+                <h4>Desarrollo</h4>
+                <div class="NewMaterial SubSection" onmouseover="playAudio2(42.8,45.2)" onmouseout="pauseAudio()">
+                    Nuevo Material
+                </div> 
+                <div class="TemaLibre6 SubSection" onmouseover="playAudio2(45.2,47.9)" onmouseout="pauseAudio()">
+                    Tema Libre
+                </div> 
+            </div>
+
+            <div class="Reexpo-block1">
+                <h4>Reexposición2</h4>
+                    <div class="TemaBis2 SubSection" onmouseover="playAudio2(48,50)" onmouseout="pauseAudio()">
+                        Tema 1
+                    </div>
+            </div>
+            <div class="Reexpo-block2">
+                <h4>Reexposición</h4>
+                <div class="TemaLibre7 SubSection" onmouseover="playAudio2(50,52.8)" onmouseout="pauseAudio()">
+                    Tema Libre
+                </div>
+                <div class="TemaBis3 SubSection" onmouseover="playAudio2(52.9,55.3)" onmouseout="pauseAudio()">
+                    Tema 1
+                </div>
+                <div class="TemaLibre8 SubSection" onmouseover="playAudio2(55.4,56.6)" onmouseout="pauseAudio()">
+                    Tema Libre
+                </div>
+                <div class="Tema2bis2 SubSection" onmouseover="playAudio2(56.6,59)" onmouseout="pauseAudio()">
+                    Tema 2
+                </div>
+            </div>
+            <div class="Reexpo-block3">
+                <h4>Reexposición</h4>
+                <div class="Tema2bis3 SubSection" onmouseover="playAudio2(59.1,61.4)" onmouseout="pauseAudio()">
+                    Tema 2
+                </div>
+                <div class="TemaLibre9 SubSection" onmouseover="playAudio2(61.6,66.5)" onmouseout="pauseAudio()">
+                    Tema Libre
+                </div>
+            </div>            
+    </div>
+    <footer>
+        <div>Song: IMSLP183105-PMLP114560-Muzio_Clementi,_Sonatina_op.36_n.1.mp3</div>
+        <div>Rodrigo Pasquel. Octubre 2020.</div>
+    </footer>
+    
+</body>
+<script>
+    var enablePlayAudioState = 'on';
+    this.state = 'off';
+    var Song = document.getElementById("Song"); 
+    function playAudio(Time) { 
+         Song.src = "audio/Clementi_Sonatina_1.mp3";
+        Song.play(); 
+    } 
+    function playAudio2(startTime,EndTime) { 
+        if(enablePlayAudioState == 'on'){
+            Song.src = "audio/Clementi_Sonatina_1.mp3#t="+startTime+","+EndTime;
+            Song.play(); 
+        }
+    }
+    
+    function pauseAudio() { 
+            Song.pause();
+    } 
+    function showHideSubSections() {
+        var elements = document.getElementsByClassName("SubSection");
+        if(this.state == 'on')
+            {
+                for (var i = 0; i < elements.length; i++) {
+                elements[i].style.display = "flex";
+                }
+                this.state = 'off';
+            }
+        else
+            {
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].style.display = "none";
+                }
+                this.state = 'on';
+            }    
+    }
+    function enablePlayAudio() {
+        if(enablePlayAudioState == 'on')
+            enablePlayAudioState = 'off';
+        else
+            enablePlayAudioState = 'on';
+    }
+    // HTML5 funciton info:
+    // https://html.spec.whatwg.org/#the-audio-element
+    // https://developer.mozilla.org/es/docs/Web/HTML/Usando_audio_y_video_con_HTML5
+    // https://www.w3schools.com/tags/ref_av_dom.asp
+    // https://css-tricks.com/examples/SoundOnHover/
+    </script>
+</html>
